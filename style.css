@@ -1,0 +1,302 @@
+/* ==========================
+   Global Styles
+========================== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body{
+    background-color: var(--back-color);
+}
+
+/* ==========================
+   CSS Variables (Theme)
+========================== */
+:root {
+  --main-color: #fffbfb;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --space: 10px;
+  --max: 28px;
+  --max-padding: 20px;
+  --back-color: #f0eef1;
+  --border-radius: 8px;
+  --mid-space: 15px; /* Fixed typo from '15x' to '15px' */
+}
+
+/* ==========================
+   Layout
+========================== */
+.container {
+ display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto 1fr auto;  
+  gap: 8px;
+  min-height: 100vh
+}
+
+/* ==========================
+   Header Section
+========================== */
+.head {
+  background-color: var(--main-color);
+  box-shadow: var(--shadow);
+  padding: var(--max-padding);
+  text-align: center;
+  grid-column: span 5;
+
+}
+
+/* ==========================
+   Main Body
+========================== */
+.body {
+  grid-column: span 5;
+  grid-row: span 3;
+  grid-row-start: 2;
+  background-color: var(--back-color);
+  padding: var(--max-padding);
+  text-align: center;
+  height: auto;
+}
+
+/* ==========================
+   Footer Section
+========================== */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  grid-column: span 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space);
+  padding: var(--space);
+  background-color: var(--back-color);
+}
+
+.footer a img {
+  display: block;
+  max-width: var(--max);
+  max-height: var(--max);
+}
+
+.footer a img:hover {
+  margin-bottom: var(--space);
+  margin-left: var(--space);
+}
+
+/* ==========================
+   Add Button
+========================== */
+.add-btn {
+  font-size: 24px;
+  font-weight: 600;
+  padding: var(--space) var(--mid-space);
+  border: none;
+  margin-bottom: var(--space);
+}
+
+.add-btn:hover {
+  border-radius: var(--border-radius);
+  background-color: #dad7dc;
+}
+
+/* ==========================
+   Overlay and Dialog
+========================== */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.dialog {
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--max-padding);
+  background-color: var(--back-color);
+  border-radius: var(--border-radius);
+  padding: var(--max-padding);
+  text-align: center;
+}
+
+.dialog input {
+  width: 100%;
+  display: block;
+  padding: var(--space);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: text;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   Checkbox Section
+========================== */
+.checkBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mid-space);
+}
+
+#check {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* ==========================
+   Dialog Buttons
+========================== */
+.dialog .sub-btn,
+.buttons .read-check,
+.buttons .delete {
+  width: 100%;
+  background-color: #9fff9c;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.dialog .sub-btn:hover,
+.buttons .read-check:hover {
+  background-color: #77d174;
+}
+
+.buttons .delete {
+  background-color: var(--back-color);
+}
+
+.buttons .delete:hover {
+  background-color: #d4d0d6;
+}
+
+/* ==========================
+   Books List Layout
+========================== */
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--max-padding);
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* ==========================
+   Book Card Style
+========================== */
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: var(--max-padding);
+  gap: var(--max-padding);
+  padding: var(--max-padding);
+  border-radius: var(--border-radius);
+  background-color: var(--main-color);
+  box-shadow: var(--shadow);
+  line-height: 1.2;
+  width: 350px;
+}
+
+/* ==========================
+   Book Card Buttons
+========================== */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--max-padding);
+}
+
+/* ==========================
+   Hidden Class (Utility)
+========================== */
+.hidden {
+  display: none;
+}
+
+
+/* ==========================
+   Responsive Styles
+========================== */
+
+/* Screens smaller than 1024px (Tablets & smaller laptops) */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+  }
+
+  .book-details {
+    width: 100%;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* Screens smaller than 768px (Mobiles) */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .head,
+  .body,
+  .footer {
+    grid-column: span 1;
+    padding: 15px;
+  }
+
+  .books-container {
+    justify-content: center;
+  }
+
+  .book-details {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .add-btn {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+
+  .dialog {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .dialog input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .dialog .sub-btn,
+  .buttons .read-check,
+  .buttons .delete {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

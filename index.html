@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./imgs/Favicon.webp" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <header class="head">
+            <h1>Library</h1>
+        </header>
+
+        <main class="body">
+            <button class="add-btn" id="btn-add">+ Add book</button>
+
+            <!-- Container for all book cards -->
+            <div id="booksContainer" class="books-container">
+                <!-- Template card (hidden) -->
+                <div class="book-details hidden" id="bookTemplate">
+                    <p class="book-name"></p>
+                    <p class="author-name"></p>
+                    <p class="page-numbers"></p>
+                    <div class="buttons">
+                        <button class="read-check">Read</button>
+                        <button class="delete">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Copyright &copy; 2025 ShahdHussein </p>
+            <a href="https://github.com/shahd-abdo2711" target="_blank">
+                <img src="./imgs/github-mark.svg" alt="git_hub_logo">
+            </a>
+        </footer>
+
+
+        <!-- Overlay -->
+        <div id="overlay" class="hidden"></div>
+
+        <!-- Dialog Form -->
+        <form class="dialog hidden" id="dialog">
+            <h2>Add new book</h2>
+            <input type="text" placeholder="Title" required id="bookInp" />
+            <input type="text" placeholder="Author" required id="authorInp" />
+            <input type="number" placeholder="Pages" id="numberInp" min="1" required />
+            <div class="checkBox">
+                <label for="check">Have you read it?</label>
+                <input type="checkbox" id="check" />
+            </div>
+            <button id="subBtn" class="sub-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
